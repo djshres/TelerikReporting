@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="billData.CalculatedFields" xml:space="preserve">
+    <value>=Format("{0} {1} {2} {3} {4} {5} {6} {7}",
+Substr(Fields.Reference, 0, 4),
+Substr(Fields.Reference, 4, 4),
+Substr(Fields.Reference, 8, 4),
+Substr(Fields.Reference, 12, 4),
+Substr(Fields.Reference, 16, 4),
+Substr(Fields.Reference, 20, 4),
+Substr(Fields.Reference, 24, 4),
+Substr(Fields.Reference, 28, 4)
+)</value>
+  </data>
+  <data name="billData.Source" xml:space="preserve">
+    <value>CreditorIBAN	CreditorIBANType	CreditorName	CreditorCountry	CreditorZipCode	CreditorCity	CreditorStreet	CreditorHouseNumber	DebtorName	DebtorCountry	DebtorZipCode	DebtorCity	DebtorStreet	DebtorHouseNumber	Currency	Amount	Reference	ReferenceType	AdditionalInformation	AlternativeProcedure1	AlternativeProcedure2	StructuredBillInformation
+CH45 0023 0230 9999 9999 A	IBAN	Schreinerei Habegger &amp; Söhne	CH	8045	Zürich	Uetlibergstrasse	138	Simon Glarner	CH	8184	Bachenbülach	Bächliwis	55	EUR	287.3	RF192320QF02T3234UI234	SCOR	Rechnungsnr. 10978 / Auftragsrnr. 3987			
+CH95 0020 6206 1057 2901 J	IBAN	Gromion SA	CH	2034	Peseux	Avenue Fornachon	34	Céline Pythoud	CH	1040	Échallens	Chemin du Grand Record	42	CHF	371.2	RF23T2083QFT2800291F	SCOR				
+CH93 0076 2011 6238 5295 7	IBAN	Lea Simmen	CH	5502	Hunzenschwil	Weinbergstrasse	31							CHF	100						
+CH19 0900 0000 6900 2821 9	IBAN	Croce Rossa Svizzera - Sezione del Sottoceneri	CH	6900	Lugano	Via alla Campagna	9							CHF							
+CH44 3199 9123 0008 8901 2	IBAN	Robert Schneider AG	CH	2501	Biel	Rue du Lac	1268/2/22	Pia-Maria Rutschmann-Schnyder	CH	9400	Rorschach	Grosse Marktgasse	28	CHF	123949.75	210000000003139471430009017	QRR	Instruction of 15.09.2019			//S1/10/10201409
+CH37 0900 0000 3044 4222 5	IBAN	Salvation Army Foundation Switzerland	CH	3000	Bern									CHF				Donation to the Winterfest campaign			
+</value>
+  </data>
+  <data name="pictureBoxReceiptPayableByMissing.Value" xml:space="preserve">
+    <value>&lt;svg version="1.1" x="0px" y="0px" viewBox="0 0 148.2 57.5" style="enable-background:new 0 0 148.2 57.5;"&gt;
+&lt;style type="text/css"&gt;
+	.st0{fill:#FFFFFF;stroke:#000000;stroke-width:0.75;stroke-miterlimit:10;}
+&lt;/style&gt;
+&lt;polyline class="st0" points="8.5,57.1 8.3,57.1 0.4,57.1 0.4,47.8 "/&gt;
+&lt;polyline class="st0" points="147.8,47.8 147.8,57.1 138.9,57.1 "/&gt;
+&lt;polyline class="st0" points="138.9,0.4 147.8,0.4 147.8,8 147.8,8.1 "/&gt;
+&lt;polyline class="st0" points="0.4,8.1 0.4,7.9 0.4,0.4 8.4,0.4 8.5,0.4 "/&gt;
+&lt;/svg&gt;</value>
+  </data>
+  <data name="pictureBoxReceiptAmountMissing.Value" xml:space="preserve">
+    <value>&lt;svg version="1.1" x="0px" y="0px" viewBox="0 0 85.8 29" style="enable-background:new 0 0 85.8 29;"&gt;
+&lt;style type="text/css"&gt;
+	.st0{fill:#FFFFFF;stroke:#000000;stroke-width:0.75;stroke-miterlimit:10;}
+&lt;/style&gt;
+&lt;polyline class="st0" points="8.9,28.7 8.7,28.7 0.4,28.7 0.4,20.2 "/&gt;
+&lt;polyline class="st0" points="85.4,20.2 85.4,28.7 76.9,28.7 "/&gt;
+&lt;polyline class="st0" points="76.9,0.4 85.4,0.4 85.4,8.5 85.4,8.9 "/&gt;
+&lt;polyline class="st0" points="0.4,8.9 0.4,8.7 0.4,0.4 8.7,0.4 8.9,0.4 "/&gt;
+&lt;/svg&gt;</value>
+  </data>
+  <data name="pictureBoxPaymentAmountMissing.Value" xml:space="preserve">
+    <value>&lt;svg version="1.1" x="0px" y="0px" viewBox="0 0 85.8 29" style="enable-background:new 0 0 85.8 29;"&gt;
+&lt;style type="text/css"&gt;
+	.st0{fill:#FFFFFF;stroke:#000000;stroke-width:0.75;stroke-miterlimit:10;}
+&lt;/style&gt;
+&lt;polyline class="st0" points="8.9,28.7 8.7,28.7 0.4,28.7 0.4,20.2 "/&gt;
+&lt;polyline class="st0" points="85.4,20.2 85.4,28.7 76.9,28.7 "/&gt;
+&lt;polyline class="st0" points="76.9,0.4 85.4,0.4 85.4,8.5 85.4,8.9 "/&gt;
+&lt;polyline class="st0" points="0.4,8.9 0.4,8.7 0.4,0.4 8.7,0.4 8.9,0.4 "/&gt;
+&lt;/svg&gt;</value>
+  </data>
+  <data name="pictureBoxPaymentPayableByMissing.Value" xml:space="preserve">
+    <value>&lt;svg version="1.1" x="0px" y="0px" viewBox="0 0 148.2 57.5" style="enable-background:new 0 0 148.2 57.5;"&gt;
+&lt;style type="text/css"&gt;
+	.st0{fill:#FFFFFF;stroke:#000000;stroke-width:0.75;stroke-miterlimit:10;}
+&lt;/style&gt;
+&lt;polyline class="st0" points="8.5,57.1 8.3,57.1 0.4,57.1 0.4,47.8 "/&gt;
+&lt;polyline class="st0" points="147.8,47.8 147.8,57.1 138.9,57.1 "/&gt;
+&lt;polyline class="st0" points="138.9,0.4 147.8,0.4 147.8,8 147.8,8.1 "/&gt;
+&lt;polyline class="st0" points="0.4,8.1 0.4,7.9 0.4,0.4 8.4,0.4 8.5,0.4 "/&gt;
+&lt;/svg&gt;</value>
+  </data>
+  <data name="pictureBoxScissors.Value" xml:space="preserve">
+    <value>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 105.78 122.88" style="enable-background:new 0 0 105.78 122.88" xml:space="preserve"&gt;&lt;style type="text/css"&gt;.st0{fill-rule:evenodd;clip-rule:evenodd;}&lt;/style&gt;&lt;g&gt;&lt;path class="st0" d="M85.94,27.52C91.11,16.47,91.02,7.34,86.04,0L55.09,53.71l7.69,13.64L85.94,27.52L85.94,27.52z M19.84,27.52 C14.67,16.47,14.76,7.34,19.74,0l37.45,64.99c1.74,2.25,2.82,4.64,2.96,7.22c0.13,2.41-0.56,3.29-0.95,5.39 c-0.32,1.76-0.14,3.55,1.03,5.4l1.56,1.71c1.4,1.53,2.6,3.37,4.97,3.07c1.58-0.2,2.91-1.54,4.06-3.69c1.48-1.63,3.21-2.9,5.19-3.78 c1.92-0.85,4.07-1.34,6.48-1.45c7.55,0.39,14.08,3.91,18.98,12.41c5.94,9.68,5.26,17.86,0.85,25.18c-3.4,4.46-7.5,6.42-12.17,6.43 c-7.12,0.01-12.9-3.41-17.38-8.73c-2.84-3.37-5.2-7.42-7.68-11.93l-9.03-11.54L55,87.98L19.84,27.52L19.84,27.52z M53.11,67.8 c1.98,0,3.58,1.6,3.58,3.58c0,1.98-1.6,3.58-3.58,3.58c-1.97,0-3.58-1.6-3.58-3.58C49.53,69.4,51.13,67.8,53.11,67.8L53.11,67.8z M75.36,90.03c2.55-3.9,6.85-4.31,10.95-2.87c3.29,1.16,6.13,3.62,8.53,7.32c2.02,3.12,3.59,8.15,3.19,12.51 c-0.78,8.45-8.3,10.05-14.86,6.36c-2.92-1.64-5.24-4.07-6.92-7.37c-1.13-2.23-2.09-4.87-2.45-7.54 C73.4,95.49,73.73,92.51,75.36,90.03L75.36,90.03z M46.56,80.59c-0.17,0.79-0.5,1.59-1.01,2.4l-1.56,1.71 c-1.4,1.53-2.6,3.37-4.97,3.07c-1.58-0.2-2.91-1.54-4.06-3.69c-1.48-1.63-3.21-2.9-5.19-3.78c-1.92-0.85-4.07-1.34-6.48-1.45 c-7.55,0.39-14.08,3.91-18.98,12.41c-5.94,9.68-5.26,17.86-0.85,25.18c3.4,4.46,7.5,6.42,12.17,6.43 c7.12,0.01,12.9-3.41,17.38-8.73c2.84-3.37,5.2-7.42,7.68-11.93l10.63-13.58l-0.35-0.6l-0.11-0.18L46.56,80.59L46.56,80.59z M30.43,90.03c-2.55-3.9-6.85-4.31-10.95-2.87c-3.29,1.16-6.13,3.62-8.53,7.32C8.93,97.6,7.36,102.63,7.77,107 c0.78,8.45,8.3,10.05,14.86,6.36c2.92-1.64,5.24-4.07,6.92-7.37c1.13-2.23,2.09-4.87,2.45-7.54 C32.39,95.49,32.05,92.51,30.43,90.03L30.43,90.03z"/&gt;&lt;/g&gt;&lt;/svg&gt;</value>
+  </data>
+  <data name="pictureBoxReportLogo.Value" xml:space="preserve">
+    <value>&lt;svg width="270px" height="270px" viewBox="0 0 270 270" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"&gt;
+    &lt;g stroke="none" fill="none" fill-rule="evenodd"&gt;
+        &lt;g transform="translate(-1.000000, 0.000000)"&gt;
+            &lt;rect fill="#FFFFFF" x="1" y="0" width="270" height="270"&gt;&lt;/rect&gt;
+            &lt;path d="M109,108 L46,108 L46,162 L109,162 L109,225 L163,225 L163,162 L226,162 L226,108 L163,108 L163,45 L109,45 L109,108 Z M1,0 L271,0 L271,270 L1,270 L1,0 Z M16,15 L16,65 L66,65 L66,15 L16,15 Z M206,15 L206,65 L256,65 L256,15 L206,15 Z M16,205 L16,255 L66,255 L66,205 L16,205 Z M26,25 L56,25 L56,55 L26,55 L26,25 Z M216,25 L246,25 L246,55 L216,55 L216,25 Z M26,215 L56,215 L56,245 L26,245 L26,215 Z" fill="#E11A27"&gt;&lt;/path&gt;
+        &lt;/g&gt;
+    &lt;/g&gt;
+&lt;/svg&gt;</value>
+  </data>
+  <data name="htmlTextBox1.Value" xml:space="preserve">
+    <value>&lt;p style='padding: 8 0 0 8'&gt;The &lt;strong&gt;Swiss QR-bill&lt;/strong&gt; is designed as a&amp;nbsp;replacement for the payment slips currently used for financial transactions in Switzerland. It has a standardized text layout and&amp;nbsp;contains a&amp;nbsp;digitally readable QR-based barcode&amp;nbsp;that holds&amp;nbsp;all the data for a particular payment, streamlining the processing of bills and credit transfers for companies, government bodies, non-profits and consumers.&lt;/p&gt;&lt;p style='padding: 0 0 0 8'&gt;The examples below demonstrate different scenarios for the Swiss QR-bill usage. They contain data obtained from the &lt;a href="https://www.codecrete.net/qrbill/"&gt;Swiss QR Bill&lt;/a&gt; website and their purpose is to serve both as a showcase and template for a production-ready reports.&lt;/p&gt;</value>
+  </data>
+  <data name="htmlTextBox2.Value" xml:space="preserve">
+    <value>&lt;p style='padding: 8 0 0 8'&gt;&lt;strong&gt;Useful links&lt;/strong&gt;&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;a href="https://www.paymentstandards.ch/dam/downloads/ig-qr-bill-en.pdf"&gt;Swiss Implementation Guidelines for the QR-bill&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href="https://www.swiss-qr-invoice.org/validator"&gt;QR-bill validator&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;</value>
+  </data>
+  <metadata name="$this.SnapToGrid" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+</root>

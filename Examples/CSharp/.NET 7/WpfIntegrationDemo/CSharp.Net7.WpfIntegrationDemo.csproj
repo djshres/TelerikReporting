@@ -1,0 +1,37 @@
+<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+  <PropertyGroup Label="Globals">
+    <Configurations>Debug;Release;Linux</Configurations>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFrameworks>net7.0-windows</TargetFrameworks>
+    <EnableWindowsTargeting>true</EnableWindowsTargeting>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Remove="Images\Demo.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Telerik.Reporting.OpenXmlRendering" Version="18.2.24.806" />
+    <PackageReference Include="Telerik.Reporting" Version="18.2.24.806" />
+    <PackageReference Include="Telerik.ReportViewer.Wpf.Themes" Version="18.2.24.806" />
+    <PackageReference Include="Telerik.ReportViewer.Wpf" Version="18.2.24.806" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Telerik.Windows.Controls">
+    <HintPath>..\..\..\..\Bin\WpfViewerDependencies\Net7\Telerik.Windows.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.Input">
+    <HintPath>..\..\..\..\Bin\WpfViewerDependencies\Net7\Telerik.Windows.Controls.Input.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.Navigation">
+    <HintPath>..\..\..\..\Bin\WpfViewerDependencies\Net7\Telerik.Windows.Controls.Navigation.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Data">
+    <HintPath>..\..\..\..\Bin\WpfViewerDependencies\Net7\Telerik.Windows.Data.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Demo.ico" />
+  </ItemGroup>
+</Project>

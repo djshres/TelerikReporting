@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Telerik.Drawing.Skia</name>
+    </assembly>
+    <members>
+        <member name="P:Telerik.Drawing.Skia.Font.Size">
+            <summary>
+            Gets the font size in GU.
+            </summary>
+        </member>
+        <member name="P:Telerik.Drawing.Skia.Matrix.M12">
+            <summary>
+            Gets or sets the M12 value.
+            </summary>
+        </member>
+        <member name="P:Telerik.Drawing.Skia.Matrix.M21">
+            <summary>
+            Gets or sets the M21 value.
+            </summary>
+        </member>
+        <member name="P:Telerik.Drawing.Skia.Matrix.M22">
+            <summary>
+            Gets or sets the M22 value.
+            </summary>
+        </member>
+        <member name="P:Telerik.Drawing.Skia.Matrix.OffsetX">
+            <summary>
+            Gets or sets the OffsetX value.
+            </summary>
+        </member>
+        <member name="P:Telerik.Drawing.Skia.Matrix.OffsetY">
+            <summary>
+            Gets or sets the OffsetY value.
+            </summary>
+        </member>
+        <member name="F:Telerik.Drawing.Skia.SweepDirection.Clockwise">
+            <summary>
+            Represents clockwise sweep direction.
+            </summary>
+        </member>
+        <member name="F:Telerik.Drawing.Skia.SweepDirection.Counterclockwise">
+            <summary>
+            Represents counterclockwise sweep direction.
+            </summary>
+        </member>
+        <member name="T:Telerik.Drawing.Skia.Text.PrivateFontCollection">
+            <summary>
+            PFC does not dispose its fonts until the end of the application lifecycle.
+            </summary>
+        </member>
+    </members>
+</doc>

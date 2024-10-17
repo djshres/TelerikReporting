@@ -1,0 +1,125 @@
+
+@using Telerik.Reporting
+@using Telerik.ReportViewer.Mvc
+@using Telerik.Reporting.Examples.CSharp
+@{
+    ViewBag.Title = "Telerik HTML5 Report Viewer MVC Demo";
+}
+
+@section styles
+{
+    <link href="https://kendo.cdn.telerik.com/2022.3.913/styles/kendo.common.min.css" rel="stylesheet" id="common-css" />
+    <link href="https://kendo.cdn.telerik.com/2022.3.913/styles/kendo.blueopal.min.css" rel="stylesheet" id="skin-css" />
+
+    <style>
+        body {
+            margin: 5px;
+            font-family: Verdana, Arial, sans-serif;
+        }
+
+        #reportViewer1 {
+            position: absolute;
+            left: 5px;
+            right: 5px;
+            top: 40px;
+            bottom: 5px;
+            overflow: hidden;
+            clear: both;
+        }
+
+        #theme-switcher {
+            float: right;
+            width: 12em;
+            height: 30px;
+        }
+    </style>
+}
+
+<select id="theme-switcher"></select>
+
+@(Html.TelerikReporting().ReportViewer()
+                    // For a complete overview for all the parameters, check https://docs.telerik.com/reporting/html5-report-viewer-jquery-fn-telerik-reportviewer
+                    // The list in the link above is for the HTML5 Viewer which this one is based on.
+                    // To use a parameter from this list, add a dot in front and make the word Pascal case, like you see below
+                    // In this template there are examples included of the most common parameters
+
+                    // Each report viewer must have an id - it will be used by the initialization script
+                    // to find the element and initialize the report viewer.
+                    .Id("reportViewer1")
+                    // The URL of the service which will serve reports.
+                    // The URL corresponds to the name of the controller class (ReportsController).
+                    // For more information on how to configure the service please check https://docs.telerik.com/reporting/embedding-reports/host-the-report-engine-remotely/telerik-reporting-rest-services/overview.
+                    .ServiceUrl(Url.Content("~/api/reports/"))
+                    // The URL for the report viewer template. The template can be edited -
+                    // new functionalities can be added and unneeded ones can be removed.
+                    // For more information please check https://docs.telerik.com/reporting/embedding-reports/display-reports-in-applications/web-application/html5-report-viewer/customizing/styling-and-appearance/templates-structure.
+                    // .TemplateUrl(Url.Content("~/ReportViewer/templates/telerikReportViewerTemplate.html"))
+                    // Strongly typed ReportSource - TypeReportSource or UriReportSource.
+                    .ReportSource(new TypeReportSource() { TypeName = typeof(ReportCatalog).AssemblyQualifiedName })
+                    // Report Server connection configuraiton
+                    // If Report Server is used instead of hosting a REST Service, comment out '.ServiceUrl' and '.ReportSource' above
+                    // uncomment '.ReportServer' and '.ReportSource' below
+                    //.ReportServer(new ReportServer()
+                    //{
+                    //    Url = "http://report-server-host:83",
+                    //    Username = "admin",
+                    //    Password = "adminpass"
+                    //})
+                    // For Report Server, use "[Category]/[ReportName]"
+                    //.ReportSource("Samples/Dashboard")
+                    // Specifies whether the viewer is in interactive or print preview mode.
+                    // PrintPreview - Displays the paginated report as if it is printed on paper. Interactivity is not enabled.
+                    // Interactive - Displays the report in its original width and height with no paging. Additionally interactivity is enabled.
+                    .ViewMode(ViewMode.Interactive)
+                    // Sets the scale mode of the viewer.
+                    // Three modes exist currently:
+                    // FitPage - The whole report will fit on the page (will zoom in or out), regardless of its width and height.
+                    // FitPageWidth - The report will be zoomed in or out so that the width of the screen and the width of the report match.
+                    // Specific - Uses the scale to zoom in and out the report.
+                    .ScaleMode(ScaleMode.Specific)
+                    // Zoom in and out the report using the scale
+                    // 1.0 is equal to 100%, i.e. the original size of the report
+                    .Scale(1.0)
+                    // Sets whether the viewer’s client session to be persisted between the page’s refreshes(ex. postback).
+                    // The session is stored in the browser’s sessionStorage and is available for the duration of the page session.
+                    .PersistSession(false)
+                    // Sets the print mode of the viewer.
+                    .PrintMode(PrintMode.AutoSelect)
+                    //Enables or disables the accessibility features of the report viewer and its contents.
+                    .EnableAccessibility(false)
+                    //Determines whether the search metadata will be delivered on demand or by default.
+                    .SearchMetadataOnDemand(false)
+                    //If set to true shows the Send Mail Message toolbar button
+                    //.SendEmail(new SendEmail { Enabled = true, CC="peter.r.raykov@telerik.com", Subject = "sub", Body = "body 1" })
+                    //Change the parameters editors type
+                    //.Parameters(new Parameters { Editors = new Editors { SingleSelect = EditorTypes.ComboBox} })
+                    // Defers the script initialization statement. Check the scripts section below -
+                    // each deferred script will be rendered at the place of TelerikReporting().DeferredScripts().
+                    .Deferred()
+)
+
+@section scripts
+{
+    <script src="@Url.Content("~/Scripts/themeSwitcher.js")"></script>
+
+    <!--If Kendo is used it should be added before the report viewer.-->
+    <!--The viewer’s JavaScript file can be referenced either with or without the product version.-->
+    <!--<script src="@Url.Content("~/api/reports/resources/js/telerikReportViewer-18.2.24.806.min.js/")"></script>-->
+    <script src="@Url.Content("~/api/reports/resources/js/telerikReportViewer")"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            //Theme switcher
+            themeSwitcher(
+                '#theme-switcher',
+                '#common-css',
+                '#skin-css');
+        });
+    </script>
+
+    @(
+
+        // All deferred initialization statements will be rendered here
+        Html.TelerikReporting().DeferredScripts()
+    )
+}

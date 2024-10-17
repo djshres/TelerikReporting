@@ -1,0 +1,50 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+	<PropertyGroup Label="Globals">
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<TargetFramework>net7.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+		<DockerfileContext>..\..</DockerfileContext>
+	</PropertyGroup>
+
+	<ItemGroup>
+    <PackageReference Include="Telerik.ReportViewer.BlazorNative" Version="18.2.24.806" />
+    <PackageReference Include="Telerik.Reporting.OpenXmlRendering" Version="18.2.24.806" />
+    <PackageReference Include="Telerik.Reporting.Services.AspNetCore" Version="18.2.24.806" />
+    <PackageReference Include="Telerik.Drawing.Skia" Version="18.2.24.806" />
+	</ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Resources\ReportViewerMessages.Designer.cs">
+      <DependentUpon>ReportViewerMessages.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Update="Resources\TelerikMessages.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>TelerikMessages.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Resources\ReportViewerMessages.resx">
+      <LastGenOutput>ReportViewerMessages.Designer.cs</LastGenOutput>
+      <Generator>ResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\TelerikMessages.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>TelerikMessages.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Services\" />
+  </ItemGroup>
+</Project>

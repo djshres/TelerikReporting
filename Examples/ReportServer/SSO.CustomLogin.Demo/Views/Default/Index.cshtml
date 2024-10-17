@@ -1,0 +1,186 @@
+﻿@model CustomLoginApp.Models.ReportServerLogin
+@{
+    ViewBag.Title = "Index";
+}
+
+@using (Html.BeginForm("LoginServerSide", "Default", FormMethod.Post))
+{
+    <h2>Authenticate to Report Server</h2>
+    <h3>Overview:</h3>
+    <p>
+        This sample application demonstrates two types of authenticating against a Report Server instance - client-side and server-side.
+        The common workflow uses an object instance of type <em>Telerik.ReportServer.HttpClient.CustomLoginData</em> that contains a
+        <code>http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier</code> claim with the user name that will be used for authentication.
+        The instance is signed using a helper server-side method and is passed to the specified WebAPI endpoint of Report Server with a POST request. The Report Server performs the verification of signature and provided user name.
+        In case the request succeeds, its response will contain an authentication cookie, generated from Report Server when the provided user is signed in the application.
+        In both cases the browser is redirected to the default Reports view of Report Server.
+    </p>
+    <ul>
+        <li>
+            <p>
+                <strong>Client-side authentication</strong> wraps the <em>CustomLoginData</em> instance in an object that contains also the certificate name
+                and calls the method <code>SignCustomLoginData(LoginSignInfo signInfo)</code> of the <em>DefaultController</em> class that signs and returns the <em>CustomLoginData</em> instance.
+                Once signed, the instance is passed to Report Server&#39;s endpoint through a jQuery POST request that is configured to use the response authentication cookie in the subsequent requests.
+            </p>
+        </li>
+        <li>
+            <p>
+                <strong>Server-side authentication</strong> uses the local model to construct and sign an instance of <em>CustomLoginData</em>.
+                The instance is posted to Report Server&#39;s endpoint using HttpClient. If the response is returned successfully, the provided authentication cookie
+                value is assigned to a new HttpCookie, which is added to the response of the current HttpContext instance. The response is redirected to the default Reports view.
+            </p>
+            <p>This approach will work only if the Report Server and calling application share the same domain, which must correspond to the new cookie&#39;s <em>Domain</em> property.</p>
+        </li>
+    </ul>
+
+    <h3>Prerequisites:</h3>
+    <ul>
+        <li>
+            Valid X509 certificate installed in local machine store. An example on how to create a self-signed certificate for testing purposes can be found
+            <a href="https://docs.microsoft.com/en-us/powershell/module/pkiclient/new-selfsignedcertificate?view=win10-ps">here</a>.
+        </li>
+        <li>
+            Report Server instance with configured <strong>Custom authentication</strong> options:
+            <ul>
+                <li>Custom authentication must be enabled</li>
+                <li>The certificate&#39;s public key must be set</li>
+                <li>The signature's hash algorithm must match the algorithm used for signing</li>
+            </ul>
+        </li>
+    </ul>
+    <div class="form-horizontal">
+        <hr />
+        <h3>Configuration fields</h3>
+        <div class="form-group" id="certificateCommonNameField">
+            @Html.LabelFor(model => model.CertificateName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CertificateName, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+        </div>
+
+        <div class="form-group" id="urlField">
+            @Html.LabelFor(model => model.Url, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Url, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+        </div>
+
+        <div class="form-group" id="endpointField">
+            @Html.LabelFor(model => model.Endpoint, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Endpoint, new { htmlAttributes = new { @class = "form-control disabled", @readonly = "readonly" } })
+            </div>
+        </div>
+        <hr />
+        <h3>Authentication fields</h3>
+        <div class="form-group" id="usernameField">
+            @Html.LabelFor(model => model.Username, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Username, new { htmlAttributes = new { @class = "form-control" } })
+
+                <small>
+                    The username must belong to a valid registered user in Report Server.
+                    In this sample it is displayed for testing purposes, but in a typical scenario it should correspond to the currently logged user in the current application.
+                </small>
+            </div>
+        </div>
+    </div>
+    <hr />
+    <input type="button" value="Client-side login (JS)" onclick="loginJS()" class="btn btn-primary" style="margin-right:50px" />
+    <input type="submit" value="Server-side login (C#)" class="btn btn-primary" />
+    <div>
+        <span class="text-danger" id="errorField">
+            @Model.Error
+        </span>
+    </div>
+}
+
+<script type="text/javascript">
+    $(function () {
+        $('#urlField').find('#Url').blur(function (e) {
+            var v = e.currentTarget.value;
+            if (v.substr(-1) !== '/') {
+                e.currentTarget.value += '/';
+            }
+        });
+    });
+
+    function getModelValues() {
+
+        return {
+            certificateName: $('#certificateCommonNameField').find('#CertificateName').val(),
+            url: $('#urlField').find('#Url').val(),
+            endpoint: $('#endpointField').find('#Endpoint').val(),
+            username: $('#usernameField').find('#Username').val()
+        };
+    }
+
+    function loginJS() {
+
+        var model = getModelValues();
+
+            createCustomLoginData()
+                .then(function (data) {
+                    return performLogin(data);
+                })
+                .then(function () {
+                    window.location.href = model.url + 'report/index';
+                })
+                .catch(function (err) {
+                    $("#errorField").html(err.responseText);
+                });
+        }
+
+    function performLogin(customLoginData) {
+        var model = getModelValues();
+
+        var endpointUrl = model.url + model.endpoint;
+            return $.ajax({
+                type: "POST",
+                contentType: "application/json",
+                url: endpointUrl,
+                data: JSON.stringify(customLoginData),
+                xhrFields: {
+                    withCredentials: true
+                },
+                crossDomain: true,
+                success: function (data, textStatus, jqXHR) {
+                    console.log('The user is logged in after successfully verified credentials and signature');
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    console.log(textStatus + ' ' + XMLHttpRequest.statusText + ' ' + XMLHttpRequest.responseText);
+                }
+            });
+        }
+
+    function createCustomLoginData() {
+        var model = getModelValues();
+            return new Promise(function (resolve, reject) {
+                var customLoginData = {
+                    claims: {
+                        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier": model.username
+                    }
+                };
+
+                var loginInfoStr = JSON.stringify({
+                    certificateName: model.certificateName,
+                    customLoginData: customLoginData
+                });
+
+                $.ajax({
+                    type: "POST",
+                    url: "@Url.Action("SignCustomLoginData", "Default")",
+                    data: { serializedSignInfo: loginInfoStr },
+                    success: function (data, textStatus, jqXHR) {
+                        var signedData = JSON.parse(data);
+                        console.log('Successfully created and signed CustomLoginData object with signature ' + signedData.Signature);
+                        resolve(signedData);
+                    },
+                    error: function (XMLHttpRequest, textStatus, errorThrown) {
+                        reject('error: ' + textStatus)
+                    },
+                    dataType: "json"
+                });
+            });
+        }
+</script>

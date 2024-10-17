@@ -1,0 +1,99 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup Label="Globals">
+    <Configurations>Debug;Release;Linux</Configurations>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Remove="Resources\world.dbf" />
+    <None Remove="Resources\world.shp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\.NET Framework\ReportLibrary\Barcodes\BarcodesReport.cs" Link="Barcodes\BarcodesReport.cs" />
+    <Compile Include="..\..\.NET Framework\ReportLibrary\Barcodes\BarcodesReport.Designer.cs" Link="Barcodes\BarcodesReport.Designer.cs" />
+    <Compile Include="..\..\.NET Framework\ReportLibrary\Barcodes\SwissQRBill.cs" Link="Barcodes\SwissQRBill.cs" />
+    <Compile Include="..\..\.NET Framework\ReportLibrary\Barcodes\SwissQRBill.Designer.cs" Link="Barcodes\SwissQRBill.Designer.cs" />
+    <Compile Include="..\..\.NET Framework\ReportLibrary\Choropleth\PopulationDensity.cs" Link="Choropleth\PopulationDensity.cs" />
+    <Compile Include="..\..\.NET Framework\ReportLibrary\Choropleth\PopulationDensity.Designer.cs" Link="Choropleth\PopulationDensity.Designer.cs" />
+    <Compile Include="..\..\.NET Framework\ReportLibrary\Crosstab\ProductSales.cs" Link="Crosstab\ProductSales.cs" />
+    <Compile Include="..\..\.NET Framework\ReportLibrary\Crosstab\ProductSales.Designer.cs" Link="Crosstab\ProductSales.Designer.cs" />
+    <Compile Include="..\..\.NET Framework\ReportLibrary\CryptoCurrencies\CryptoCurrencies.cs" Link="CryptoCurrencies\CryptoCurrencies.cs" />
+    <Compile Include="..\..\.NET Framework\ReportLibrary\CryptoCurrencies\CryptoCurrencies.Designer.cs" Link="CryptoCurrencies\CryptoCurrencies.Designer.cs" />
+    <Compile Include="..\..\.NET Framework\ReportLibrary\CryptoCurrencies\CryptoCurrencyInfo.cs" Link="CryptoCurrencies\CryptoCurrencyInfo.cs" />
+    <Compile Include="..\..\.NET Framework\ReportLibrary\CryptoCurrencies\CryptoCurrencyInfo.Designer.cs" Link="CryptoCurrencies\CryptoCurrencyInfo.Designer.cs" />
+    <Compile Include="..\..\.NET Framework\ReportLibrary\CryptoCurrencies\CryptoCurrencyRawData.cs" Link="CryptoCurrencies\CryptoCurrencyRawData.cs" />
+    <Compile Include="..\..\.NET Framework\ReportLibrary\CryptoCurrencies\CryptoCurrencyRawData.Designer.cs" Link="CryptoCurrencies\CryptoCurrencyRawData.Designer.cs" />
+    <Compile Include="..\..\.NET Framework\ReportLibrary\CryptoCurrencies\CryptoDataResolver.cs" Link="CryptoCurrencies\CryptoDataResolver.cs" />
+    <Compile Include="..\..\.NET Framework\ReportLibrary\CryptoCurrencies\CurrencyDetails.cs" Link="CryptoCurrencies\CurrencyDetails.cs" />
+    <Compile Include="..\..\.NET Framework\ReportLibrary\CryptoCurrencies\CurrencyModel.cs" Link="CryptoCurrencies\CurrencyModel.cs" />
+    <Compile Include="..\..\.NET Framework\ReportLibrary\Dashboard\DashBoard.cs" Link="Dashboard\DashBoard.cs" />
+    <Compile Include="..\..\.NET Framework\ReportLibrary\Dashboard\DashBoard.Designer.cs" Link="Dashboard\DashBoard.Designer.cs" />
+    <Compile Include="..\..\.NET Framework\ReportLibrary\Dashboard\SalesByRegionDashboard.cs" Link="Dashboard\SalesByRegionDashboard.cs" />
+    <Compile Include="..\..\.NET Framework\ReportLibrary\Dashboard\SalesByRegionDashboard.Designer.cs" Link="Dashboard\SalesByRegionDashboard.Designer.cs" />
+    <Compile Include="..\..\.NET Framework\ReportLibrary\DataBinding\Car.cs" Link="DataBinding\Car.cs" />
+    <Compile Include="..\..\.NET Framework\ReportLibrary\DataBinding\Cars.cs" Link="DataBinding\Cars.cs" />
+    <Compile Include="..\..\.NET Framework\ReportLibrary\DataBinding\ListBoundReport.cs" Link="DataBinding\ListBoundReport.cs" />
+    <Compile Include="..\..\.NET Framework\ReportLibrary\DataBinding\ListBoundReport.Designer.cs" Link="DataBinding\ListBoundReport.Designer.cs" />
+    <Compile Include="..\..\.NET Framework\ReportLibrary\EmployeeSales\EmployeeSalesSummary.cs" Link="EmployeeSales\EmployeeSalesSummary.cs" />
+    <Compile Include="..\..\.NET Framework\ReportLibrary\EmployeeSales\EmployeeSalesSummary.Designer.cs" Link="EmployeeSales\EmployeeSalesSummary.Designer.cs" />
+    <Compile Include="..\..\.NET Framework\ReportLibrary\Invoice\Invoice.cs" Link="Invoice\Invoice.cs" />
+    <Compile Include="..\..\.NET Framework\ReportLibrary\Invoice\Invoice.designer.cs" Link="Invoice\Invoice.designer.cs" />
+    <Compile Include="..\..\.NET Framework\ReportLibrary\Invoice\SalesOrderDetails.cs" Link="Invoice\SalesOrderDetails.cs" />
+    <Compile Include="..\..\.NET Framework\ReportLibrary\Invoice\SalesOrderDetails.designer.cs" Link="Invoice\SalesOrderDetails.designer.cs" />
+    <Compile Include="..\..\.NET Framework\ReportLibrary\Map\OlympicMedalsByNationalTeams.cs" Link="Map\OlympicMedalsByNationalTeams.cs" />
+    <Compile Include="..\..\.NET Framework\ReportLibrary\Map\OlympicMedalsByNationalTeams.designer.cs" Link="Map\OlympicMedalsByNationalTeams.designer.cs" />
+    <Compile Include="..\..\.NET Framework\ReportLibrary\Multicolumn\ProductTag.cs" Link="Multicolumn\ProductTag.cs" />
+    <Compile Include="..\..\.NET Framework\ReportLibrary\Multicolumn\ProductTag.designer.cs" Link="Multicolumn\ProductTag.designer.cs" />
+    <Compile Include="..\..\.NET Framework\ReportLibrary\ProductCatalog\ProductCatalog.cs" Link="ProductCatalog\ProductCatalog.cs" />
+    <Compile Include="..\..\.NET Framework\ReportLibrary\ProductCatalog\ProductCatalog.Designer.cs" Link="ProductCatalog\ProductCatalog.Designer.cs" />
+    <Compile Include="..\..\.NET Framework\ReportLibrary\ProductLineSales\ProductLineSales.cs" Link="ProductLineSales\ProductLineSales.cs" />
+    <Compile Include="..\..\.NET Framework\ReportLibrary\ProductLineSales\ProductLineSales.Designer.cs" Link="ProductLineSales\ProductLineSales.Designer.cs" />
+    <Compile Include="..\..\.NET Framework\ReportLibrary\ReportBook\ReportBook.cs" Link="ReportBook\ReportBook.cs" />
+    <Compile Include="..\..\.NET Framework\ReportLibrary\ReportBook\ReportBookToc.cs" Link="ReportBook\ReportBookToc.cs" />
+    <Compile Include="..\..\.NET Framework\ReportLibrary\ReportBook\ReportBookToc.Designer.cs" Link="ReportBook\ReportBookToc.Designer.cs" />
+    <Compile Include="..\..\.NET Framework\ReportLibrary\ReportCatalog\ReportCatalog.cs" Link="ReportCatalog\ReportCatalog.cs" />
+    <Compile Include="..\..\.NET Framework\ReportLibrary\ReportCatalog\ReportCatalog.Designer.cs" Link="ReportCatalog\ReportCatalog.Designer.cs" />
+    <Compile Include="..\..\.NET Framework\ReportLibrary\ReportManager.cs" Link="ReportManager.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\world.dbf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\world.shp">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="..\..\.NET Framework\ReportLibrary\Barcodes\BarcodesReport.resx" Link="Barcodes\BarcodesReport.resx" />
+    <EmbeddedResource Include="..\..\.NET Framework\ReportLibrary\Barcodes\SwissQRBill.resx" Link="Barcodes\SwissQRBill.resx" />
+    <EmbeddedResource Include="..\..\.NET Framework\ReportLibrary\Choropleth\PopulationDensity.resx" Link="Choropleth\PopulationDensity.resx" />
+    <EmbeddedResource Include="..\..\.NET Framework\ReportLibrary\Crosstab\ProductSales.resx" Link="Crosstab\ProductSales.resx" />
+    <EmbeddedResource Include="..\..\.NET Framework\ReportLibrary\CryptoCurrencies\CryptoCurrencies.resx" Link="CryptoCurrencies\CryptoCurrencies.resx" />
+    <EmbeddedResource Include="..\..\.NET Framework\ReportLibrary\CryptoCurrencies\CryptoCurrencyInfo.resx" Link="CryptoCurrencies\CryptoCurrencyInfo.resx" />
+    <EmbeddedResource Include="..\..\.NET Framework\ReportLibrary\CryptoCurrencies\CryptoCurrencyRawData.resx" Link="CryptoCurrencies\CryptoCurrencyRawData.resx" />
+    <EmbeddedResource Include="..\..\.NET Framework\ReportLibrary\Dashboard\DashBoard.resx" Link="Dashboard\DashBoard.resx" />
+    <EmbeddedResource Include="..\..\.NET Framework\ReportLibrary\Dashboard\SalesByRegionDashboard.resx" Link="Dashboard\SalesByRegionDashboard.resx" />
+    <EmbeddedResource Include="..\..\.NET Framework\ReportLibrary\DataBinding\ListBoundReport.resx" Link="DataBinding\ListBoundReport.resx" />
+    <EmbeddedResource Include="..\..\.NET Framework\ReportLibrary\EmployeeSales\EmployeeSalesSummary.resx" Link="EmployeeSales\EmployeeSalesSummary.resx" />
+    <EmbeddedResource Include="..\..\.NET Framework\ReportLibrary\Invoice\Invoice.resx" Link="Invoice\Invoice.resx" />
+    <EmbeddedResource Include="..\..\.NET Framework\ReportLibrary\Invoice\SalesOrderDetails.resx" Link="Invoice\SalesOrderDetails.resx" />
+    <EmbeddedResource Include="..\..\.NET Framework\ReportLibrary\Map\OlympicMedalsByNationalTeams.resx" Link="Map\OlympicMedalsByNationalTeams.resx" />
+    <EmbeddedResource Include="..\..\.NET Framework\ReportLibrary\Multicolumn\ProductTag.resx" Link="Multicolumn\ProductTag.resx" />
+    <EmbeddedResource Include="..\..\.NET Framework\ReportLibrary\ProductCatalog\ProductCatalog.resx" Link="ProductCatalog\ProductCatalog.resx" />
+    <EmbeddedResource Include="..\..\.NET Framework\ReportLibrary\ProductLineSales\ProductLineSales.resx" Link="ProductLineSales\ProductLineSales.resx" />
+    <EmbeddedResource Include="..\..\.NET Framework\ReportLibrary\ReportBook\ReportBook.resx" Link="ReportBook\ReportBook.resx" />
+    <EmbeddedResource Include="..\..\.NET Framework\ReportLibrary\ReportBook\ReportBookToc.resx" Link="ReportBook\ReportBookToc.resx" />
+    <EmbeddedResource Include="..\..\.NET Framework\ReportLibrary\ReportCatalog\ReportCatalog.resx" Link="ReportCatalog\ReportCatalog.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="5.0.0" />
+    <PackageReference Include="System.Resources.Extensions" Version="5.0.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <!--The following lines are replaced with package refs during the product build-->
+    <PackageReference Include="Telerik.Reporting" Version="18.2.24.806" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

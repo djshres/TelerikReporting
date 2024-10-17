@@ -1,0 +1,34 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup Label="Globals">
+    <Configurations>Debug;Release;Linux</Configurations>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+  </PropertyGroup>
+  <PropertyGroup>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <DockerfileContext>..\..</DockerfileContext>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="wwwroot\ReportViewer\**" />
+    <Content Remove="wwwroot\ReportViewer\**" />
+    <EmbeddedResource Remove="wwwroot\ReportViewer\**" />
+    <None Remove="wwwroot\ReportViewer\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="6.0.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.0" />
+    <!--The following lines are replaced with package refs during the product build-->
+    <PackageReference Include="Telerik.Reporting.OpenXmlRendering" Version="18.2.24.806" />
+    <PackageReference Include="Telerik.Reporting.Services.AspNetCore" Version="18.2.24.806" />
+    <PackageReference Include="Telerik.ReportViewer.Blazor" Version="18.2.24.806" />
+    <PackageReference Include="Telerik.WebReportDesigner.Blazor" Version="18.2.24.806" />
+    <PackageReference Include="Telerik.WebReportDesigner.Services" Version="18.2.24.806" />
+    <PackageReference Include="Telerik.Drawing.Skia" Version="18.2.24.806" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Business Objects\SpeakerObjects.csproj" />
+  </ItemGroup>
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+  </Target>
+</Project>

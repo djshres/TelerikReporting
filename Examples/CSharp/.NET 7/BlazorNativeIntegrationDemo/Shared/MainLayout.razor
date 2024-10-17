@@ -1,0 +1,39 @@
+﻿@using System.Globalization
+@inherits LayoutComponentBase
+
+<PageTitle>CSharp.Net7.BlazorNativeIntegrationDemo</PageTitle>
+
+<TelerikRootComponent>
+    <div class="page">
+        <div class="sidebar">
+            <NavMenu />
+        </div>
+
+        <main>
+            <div class="top-row px-4">
+                <a href="https://docs.telerik.com/reporting/embedding-reports/display-reports-in-applications/web-application/native-blazor-report-viewer/overview/" target="_blank">About</a>
+            </div>
+
+            <article class="content px-4">
+                @Body
+            </article>
+        </main>
+    </div>
+</TelerikRootComponent>
+
+@code {
+    protected override Task OnInitializedAsync()
+    {
+        SetDefaultCulture();
+
+        return base.OnInitializedAsync();
+    }
+
+    private void SetDefaultCulture()
+    {
+        var culture = new CultureInfo("en-US");
+
+        CultureInfo.DefaultThreadCurrentCulture = culture;
+        CultureInfo.DefaultThreadCurrentUICulture = culture;
+    }
+}

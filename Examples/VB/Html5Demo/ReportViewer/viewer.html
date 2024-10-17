@@ -1,0 +1,199 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Telerik Report Viewer HTML5 Test Page</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <link href="http://kendo.cdn.telerik.com/2015.3.1111/styles/kendo.common.min.css" rel="stylesheet" id="common-css" />
+    <link href="http://kendo.cdn.telerik.com/2015.3.1111/styles/kendo.blueopal.min.css" rel="stylesheet" id="skin-css" />
+
+    <!-- Subset with version R2 2018 SP1  -->
+    <!--<script src="js/telerikReportViewer.kendo.min.js"></script>-->
+
+    <!--
+        UglifyJS in build scripts:
+
+        C:\Work\Reporting\Development\MVC\Build\NAntScripts\inc\utility.targets.include
+    -->
+
+    <style>
+        #reportViewer1 {
+            position: absolute;
+            left: 5px;
+            right: 5px;
+            top: 5px;
+            bottom: 5px;
+            overflow: hidden;
+            font-family: 'ms sans serif';
+        }
+
+        .trv-send-email,
+        .trv-search {
+            font-family: 'ms sans serif';
+        }
+
+        @media screen and (min-width: 28.75em) {
+            /* (like mobile phones in landscape or smaller tablets)*/
+
+        }
+
+        @media screen and (min-width: 40.5em) {
+            /* (like medium tablets and up) */
+
+            #reportViewer1 {
+                left: 25px;
+                right: 25px;
+                top: 25px;
+                bottom: 25px;
+            }
+        }
+
+        .k-virtual-scrollable-wrap p {
+            margin:0;
+        }
+    </style>
+</head>
+<body>
+
+    <!--<input type="button" onclick="test();" value="TEST BUTTON" />-->
+
+    <div id="reportViewer1" class="">
+        loading...
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+    <!--<script src="https://kendo.cdn.telerik.com/2018.3.911/js/kendo.all.min.js"></script>-->
+    <!-- If the version is updated, the documentation should also be updated -->
+    <!-- If a widget is added update and our kendo subset -->
+    <!-- Keeping 2015.3.1111 as a version here to ensure that the viewer works with it-->
+    <script src="http://kendo.cdn.telerik.com/2015.3.1111/js/kendo.core.min.js"></script>
+    <script src="http://kendo.cdn.telerik.com/2015.3.1111/js/kendo.data.odata.min.js"></script>
+    <script src="http://kendo.cdn.telerik.com/2015.3.1111/js/kendo.data.min.js"></script>
+    <script src="http://kendo.cdn.telerik.com/2015.3.1111/js/kendo.userevents.min.js"></script>
+    <script src="http://kendo.cdn.telerik.com/2015.3.1111/js/kendo.selectable.min.js"></script>
+    <script src="http://kendo.cdn.telerik.com/2015.3.1111/js/kendo.calendar.min.js"></script>
+    <script src="http://kendo.cdn.telerik.com/2015.3.1111/js/kendo.fx.min.js"></script>
+    <script src="http://kendo.cdn.telerik.com/2015.3.1111/js/kendo.draganddrop.min.js"></script>
+    <script src="http://kendo.cdn.telerik.com/2015.3.1111/js/kendo.mobile.scroller.min.js"></script>
+    <script src="http://kendo.cdn.telerik.com/2015.3.1111/js/kendo.virtuallist.min.js"></script>
+    <script src="http://kendo.cdn.telerik.com/2015.3.1111/js/kendo.popup.min.js"></script>
+    <script src="http://kendo.cdn.telerik.com/2015.3.1111/js/kendo.list.min.js"></script>
+    <script src="http://kendo.cdn.telerik.com/2015.3.1111/js/kendo.combobox.min.js"></script>
+    <script src="http://kendo.cdn.telerik.com/2015.3.1111/js/kendo.datepicker.min.js"></script>
+    <script src="http://kendo.cdn.telerik.com/2015.3.1111/js/kendo.resizable.min.js"></script>
+    <script src="http://kendo.cdn.telerik.com/2015.3.1111/js/kendo.dropdownlist.min.js"></script>
+    <script src="http://kendo.cdn.telerik.com/2015.3.1111/js/kendo.window.min.js"></script>
+    <script src="http://kendo.cdn.telerik.com/2015.3.1111/js/kendo.color.min.js"></script>
+    <script src="http://kendo.cdn.telerik.com/2015.3.1111/js/kendo.slider.min.js"></script>
+    <script src="http://kendo.cdn.telerik.com/2015.3.1111/js/kendo.button.min.js"></script>
+    <script src="http://kendo.cdn.telerik.com/2015.3.1111/js/kendo.colorpicker.min.js"></script>
+    <script src="http://kendo.cdn.telerik.com/2015.3.1111/js/kendo.editor.min.js"></script>
+    <script src="http://kendo.cdn.telerik.com/2015.3.1111/js/kendo.listview.min.js"></script>
+    <script src="http://kendo.cdn.telerik.com/2015.3.1111/js/kendo.multiselect.min.js"></script>
+    <script src="http://kendo.cdn.telerik.com/2015.3.1111/js/kendo.splitter.min.js"></script>
+    <script src="http://kendo.cdn.telerik.com/2015.3.1111/js/kendo.menu.min.js"></script>
+    <script src="http://kendo.cdn.telerik.com/2015.3.1111/js/kendo.panelbar.min.js"></script>
+    <script src="http://kendo.cdn.telerik.com/2015.3.1111/js/kendo.tooltip.min.js"></script>
+    <script src="http://kendo.cdn.telerik.com/2015.3.1111/js/kendo.treeview.min.js"></script>
+    <script src="http://kendo.cdn.telerik.com/2015.3.1111/js/kendo.touch.min.js"></script>
+
+    <script src="js/telerikReportViewer.js"></script>
+
+    <script type="text/javascript">
+        var reportViewer = $("#reportViewer1").telerik_ReportViewer({
+                //id: 'viewer1', -> #reportViewer1 (from the placeholder)
+                persistSession: false,
+
+                serviceUrl: "../api/reports/",
+
+               // templateUrl: 'templates/telerikReportViewerTemplate.html', // as in jQuery.load() with url and selector!
+
+                reportSource: {
+
+                    // The report can be set to a report file name (.trdx or .trdp report definition)
+                    // or CLR type name (report class definition).
+                    report: "Dashboard.trdp",
+
+                    // Parameters name value dictionary
+                    parameters: {}
+                },
+
+                scaleMode: telerikReportViewer.ScaleModes.SPECIFIC,
+
+                viewMode: telerikReportViewer.ViewModes.PRINT_PREVIEW,
+
+                scale: 1.0,
+
+                printMode: telerikReportViewer.PrintModes.AUTO,
+               // parametersAreaPosition: telerikReportViewer.ParametersAreaPositions.TOP,
+               // documentMapAreaPosition: telerikReportViewer.DocumentMapAreaPositions.RIGHT,
+
+                ready: function () {
+                    //IE9 fix
+                    if (document.documentMode && document.documentMode < 10) {
+                        $(".trv-content")[0].style.top = $(".trv-nav").height() + "px";
+                    }
+
+                    //this.refreshReport();
+                },
+
+                //pageMode: telerikReportViewer.PageModes.SINGLE_PAGE,
+
+                sendEmail: {
+                    enabled: true,
+                    from: "masterExample@example.com",
+                    to: "example@example.com",
+                    format: "XLS"
+                },
+                //parameters: {
+                //    editors: {
+                //        singleSelect: telerikReportViewer.ParameterEditorTypes.COMBO_BOX,
+                //        multiSelect: telerikReportViewer.ParameterEditorTypes.COMBO_BOX,
+                //    }
+                //},
+                parameterEditors: [
+                    // for test purposes only!!! do not copy to the demos!!!
+                    {
+                        match: function (parameter) {
+                            return false;// return true to enable the editor
+                        },
+                        createEditor: function (placeholder, options) {
+                            $(placeholder).html('<div style="border: 1px solid red;"></div>');
+                            return {
+                                beginEdit: function (parameter) {
+                                    $(placeholder).children()[0].innerHTML = parameter.id + ': ' + parameter.value;
+                                }
+                            };
+                        }
+                    }
+            ],
+            //parametersAreaPosition: telerikReportViewer.ParametersAreaPositions.TOP,
+            //documentMapAreaPosition: telerikReportViewer.DocumentMapAreaPositions.RIGHT,
+            }).data("telerik_ReportViewer");
+        // RV Events
+        //reportViewer.bind(telerikReportViewer.Events.PRINT_BEGIN, function (e, arguments) {
+        //    console.log("PRINT_STARTED - ", arguments);
+        //    arguments.handled = true;
+        //});
+
+        //reportViewer.bind(telerikReportViewer.Events.EXPORT_BEGIN, function (e, arguments) {
+        //    console.log("EXPORT_END - ", arguments);
+        //    arguments.handled = true;
+        //});
+
+
+        //reportViewer.bind(telerikReportViewer.Events.SEND_EMAIL_BEGIN, function (e, arguments) {
+        //    console.log("SEND_EMAIL_BEGIN - ", arguments);
+        //    arguments.handled = true;
+        //});
+
+        //reportViewer.bind(telerikReportViewer.Events.SEND_EMAIL_END, function (e, arguments) {
+        //    console.log("SEND_EMAIL_END - ");
+        //});
+    </script>
+
+</body>
+</html>

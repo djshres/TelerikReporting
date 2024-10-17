@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+  <packageSources>
+    <clear />
+    <add key="nuget.org" value="https://api.nuget.org/v3/index.json" protocolVersion="3" />
+    <add key="MyTelerikFeed" value="https://nuget.telerik.com/v3/index.json" protocolVersion="3" />
+  </packageSources>
+
+  <!-- Needed for restoring Telerik packages when building the Docker image. Check the referenced article section for details: https://docs.telerik.com/reporting/getting-started/installation/using-nuget-keys#generating-nuget-keys -->
+  <packageSourceCredentials>
+    <MyTelerikFeed>
+      <add key="Username" value="api-key" />
+      <add key="ClearTextPassword" value="%TelerikNugetServer_API_KEY%" />
+    </MyTelerikFeed>
+  </packageSourceCredentials>
+</configuration>

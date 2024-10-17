@@ -1,0 +1,112 @@
+@page "/"
+@inject IJSRuntime JsInterop
+
+Selected theme:
+<select value="@selectedTheme" @onchange="ChangeTheme" id="theme-switcher">
+    @foreach (var theme in blazorThemeNames)
+    {
+        <option value="@theme">@Capitalize(theme)</option>
+    }
+</select>
+
+<PageTitle>Report Viewer</PageTitle>
+
+<ReportViewer ServiceUrl="/api/reports"
+              @bind-ReportSource="@ReportSource"
+              @bind-ScaleMode="@ScaleMode"
+              @bind-ViewMode="@ViewMode"
+              @bind-ParametersAreaVisible="@ParametersAreaVisible"
+              @bind-DocumentMapVisible="@DocumentMapVisible"
+              @bind-Scale="@Scale"
+              PageMode="@PageMode.ContinuousScroll"
+              OnExportStart="@ExportStart"
+              OnRenderingEnd="@RenderingEnd"
+              OnRenderingBegin="@RenderingBegin"
+              OnExportEnd="@ExportEnd"
+              EnableSendEmail="true"
+              ServiceType="@ReportViewerServiceType.REST"
+              Height="800px"
+              Width="100%">
+    @*  To use report server uncomment the ReportViewerSettings ReportServerSettings, set the correct user and password of the hosted server, set Category/Report, e.g.'Samples/Dashboard' as a report source and change the ServiceType="@ReportViewerServiceType.ReportServer"
+    <ReportViewerSettings>
+    <ReportServerSettings Url="http://report-server-host:83" Username="user" Password="pass"></ReportServerSettings>
+    <SendEmailDialogSettings
+    From="from@example.com"
+    To="to@example.com"
+    Cc="cc@example.com"
+    Subject="Report sent"
+    Format="CSV"
+    Body="Attached report. <br/> <br/> Best regards, </br> ABC">
+    </SendEmailDialogSettings>
+    </ReportViewerSettings>*@
+</ReportViewer>
+
+@code {
+    public ScaleMode ScaleMode { get; set; } = ScaleMode.Specific;
+    public ViewMode ViewMode { get; set; } = ViewMode.Interactive;
+    public bool ParametersAreaVisible { get; set; }
+    public bool DocumentMapVisible { get; set; }
+    public double Scale { get; set; } = 1.0;
+    string[] blazorThemeNames = new[] { "default", "bootstrap", "fluent", "material" };
+    string selectedTheme { get; set; } = "default";
+
+    public ReportSourceOptions ReportSource { get; set; } = new ReportSourceOptions("Report Catalog.trdp", new Dictionary<string, object>
+    {
+        // Add parameters if applicable
+    });
+
+    async Task ChangeTheme(ChangeEventArgs e)
+    {
+        // Set the URL to the Kendo theme - it can be a relative URL pointing to a local resource or to a custom theme
+        string newThemeUrl = $"_content/Telerik.UI.for.Blazor/css/kendo-theme-{e.Value}/all.css";
+        // call the JS interop that will switch out the <link> element
+        await JsInterop.InvokeVoidAsync("changeKendoTheme", new[] { newThemeUrl });
+    }
+
+    string Capitalize(string themeName) =>
+        string.IsNullOrWhiteSpace(themeName)
+            ? throw new ArgumentNullException(nameof(themeName))
+            : string.Concat(themeName[0].ToString().ToUpper(), themeName.AsSpan(1));
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            var currentTheme = await JsInterop.InvokeAsync<string>("getCurrentBlazorTheme");
+            selectedTheme = blazorThemeNames.FirstOrDefault(name => currentTheme.Contains(name)) ?? "default";
+        }
+
+        await base.OnAfterRenderAsync(firstRender);
+    }
+
+    async Task ExportStart(ExportStartEventArgs args)
+    {
+        // Cancel CSV exporting
+        // if(args.Format == "CSV")
+        // {
+        //     args.IsCancelled = true;
+        //     await JsInterop.InvokeVoidAsync("alert", $"Exporting the report in the {args.Format} format is disabled");
+        // }
+    }
+
+    void ExportEnd(ExportEndEventArgs args)
+    {
+        // Change the window's open target
+        // if(args.Format == "PDF")
+        // {
+        //     args.WindowOpenTarget = "_blank";
+        // }
+    }
+
+    async Task RenderingEnd(RenderingEndEventArgs args)
+    {
+        // Display alert with the page count of the rendered report
+        //await JsInterop.InvokeVoidAsync("alert", $"The total page count of rendered report is: {args.PageCount}");
+    }
+
+    void RenderingBegin(RenderingBeginEventArgs args)
+    {
+        // Enable search in the rendered document
+        // args.EnableSearch = true; //default value
+    }
+}

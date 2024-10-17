@@ -1,0 +1,12 @@
+<reporting-angular-viewer
+    #viewer
+    height="100vh"
+    [reportSource]="{
+        report: 'Report Catalog.trdp',
+        parameters: { ReportYear: 2004 }
+    }"
+    [serviceUrl]="'http://localhost:59655/api/reports/'"
+    viewMode="interactive"
+    [keepClientAlive]="true"
+    (reportLoadComplete)="reportLoadComplete($event)" >
+</reporting-angular-viewer>

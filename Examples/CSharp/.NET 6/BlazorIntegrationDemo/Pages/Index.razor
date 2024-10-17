@@ -1,0 +1,74 @@
+﻿@page "/"
+@using Telerik.ReportViewer.Blazor
+@inject IJSRuntime JsInterop
+
+<link rel="stylesheet" id="TelerikThemeLink" href="https://kendo.cdn.telerik.com/2022.3.913/styles/kendo.default-main.min.css" />
+
+<style>
+    .trv-report-viewer {
+        width: 1300px;
+        height: 880px;
+        padding-right: 50px;
+    }
+</style>
+
+@* Create the ReportViewerWidget *@
+
+<p>This Blazor Report Viewer instance displays reports hosted locally using the Reporting REST service. For more information, visit the <a target="_blank" href="https://docs.telerik.com/reporting/blazor-report-viewer">Blazor Report Viewer</a> article.</p>
+<button type="button" class="btn btn-light btn-sm" @onclick="RefreshReport">Refresh Report</button>
+<button type="button" class="btn btn-light btn-sm" @onclick="Print">Print Report</button>
+
+<select @onchange="ChangeTheme" id="theme-switcher">
+    <option selected value="default-main">Default</option>
+    <option value="bootstrap-main">Bootstrap</option>
+    <option value="bootstrap-main-dark">Bootstrap Dark</option>
+    <option value="classic-main">Classic</option>
+    <option value="classic-main-dark">Classic Dark</option>
+    <option value="fluent-main">Fluent</option>
+    <option value="material-main">Material</option>
+    <option value="material-main-dark">Material Dark</option>
+</select>
+
+
+<ReportViewer @ref="reportViewer1"
+              ViewerId="rv1"
+              ServiceUrl="/api/reports"
+              ReportSource="@(new ReportSourceOptions
+                              {
+                                  Report = "Report Catalog.trdp",
+                                  //Parameters = new Dictionary<string, object>
+                                  //{
+                                  //    { "ProductCategory", "Clothing" },
+                                  //    { "ProductSubcategory", new [] { "Caps", "Gloves" } }
+                                  //}
+                              })"
+              Parameters="@(new ParametersOptions { Editors = new EditorsOptions { MultiSelect = EditorType.ComboBox, SingleSelect = EditorType.ComboBox } })"
+              ScaleMode="@(ScaleMode.Specific)"
+              Scale="1.0"
+              SendEmail=@(new SendEmailOptions { Enabled = true })
+              ClientEvents="@(new ClientEventsOptions() {
+                                  ExportBegin = "trvEventHandlers.exportBegin",
+                                  ExportEnd = "trvEventHandlers.exportEnd"
+                              })" />
+
+@code {
+    ReportViewer reportViewer1;
+
+    async void RefreshReport()
+    {
+        await reportViewer1.RefreshReportAsync();
+    }
+
+    async void Print()
+    {
+        await reportViewer1.Commands.Print.ExecuteAsync();
+    }
+
+    async Task ChangeTheme(ChangeEventArgs e)
+    {
+        // Set the URL to the Kendo theme - it can be a relative URL pointing to a local resource or to a custom theme
+        string newThemeUrl = $"https://kendo.cdn.telerik.com/2022.3.913/styles/kendo.{e.Value}.min.css";
+        // call the JS interop that will switch out the <link> element
+        await JsInterop.InvokeVoidAsync("changeKendoTheme", new[] { newThemeUrl });
+    }
+}

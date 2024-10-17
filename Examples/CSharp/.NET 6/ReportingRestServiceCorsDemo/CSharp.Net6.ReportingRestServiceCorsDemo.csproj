@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup Label="Globals">
+    <Configurations>Debug;Release;Linux</Configurations>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+  </PropertyGroup>
+  <PropertyGroup>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <DockerfileContext>..\..</DockerfileContext>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Cors" Version="2.2.0" />
+    <!--The following lines are replaced with package refs during the product build-->
+    <PackageReference Include="Telerik.Reporting.OpenXmlRendering" Version="18.2.24.806" />
+    <PackageReference Include="Telerik.WebReportDesigner.Services" Version="18.2.24.806" />
+    <PackageReference Include="Telerik.Drawing.Skia" Version="18.2.24.806" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ReportLibrary\CSharp.ReportLibrary.csproj" />
+  </ItemGroup>
+</Project>

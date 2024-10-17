@@ -1,0 +1,45 @@
+@page "/webreportdesigner"
+@rendermode InteractiveServer
+@using Telerik.WebReportDesigner.Blazor 
+  
+
+<style>
+    #wrd1 {
+        position: relative;
+        height: 90vh;
+    }
+</style>
+
+@*
+    Create the WebReportDesignerWidget
+    For further explanation of instantiation of Blazor Web Report Designer check the documentation article:
+    https://docs.telerik.com/reporting/designing-reports/report-designer-tools/web-report-designer/how-to-set-up-in-blazor-application
+*@
+
+<p>This Web Report Designer instance works with reports hosted locally using the
+Reporting REST service. For more information, visit the <a target="_blank"
+href="https://docs.telerik.com/reporting/web-report-designer">Web Report Designer</a>
+article.</p>
+  
+<WebReportDesigner 
+              DesignerId="wrd1"
+              ServiceUrl="/api/reportdesigner"
+              Report="Dashboard.trdp"
+              ToolboxArea="new ToolboxAreaOptions() { Layout = ToolboxAreaLayout.List }"
+              PropertiesArea="new PropertiesAreaOptions() { Layout = PropertiesAreaLayout.Categorized }"
+              PromptOnDiscardingModifiedReport="false"
+              SkipOnboarding="false"
+              StartMode="StartMode.Design"
+
+              ReportViewerOptions="@(new ReportViewerOptions() {
+                   // Example of passing parameters to the embedded Report Viewer used when previewing documents.
+                   // The example below demonstrates the currently available options.
+                   // ReportSourceParameters = new Dictionary<string, object>() {{ "ReportYear", 2003}},
+                   // templateUrl = "/api/reportdesigner/resources/templates/telerikReportViewerTemplate.html",
+                   // scaleMode = ScaleMode.Specific,
+                   // scale = 1.0,
+                   // pageMode = PageMode.ContinuousScroll,
+                   // viewMode = ViewMode.Interactive
+                   // Further explanation about how these options effect the Report Viewer can be found at:
+                   // https://docs.telerik.com/reporting/embedding-reports/display-reports-in-applications/web-application/html5-report-viewer/api-reference/report-viewer-initialization
+              })" />

@@ -1,0 +1,25 @@
+[$RootKey$\ToolboxControlsInstaller]
+
+[$RootKey$\ToolboxControlsInstaller\Telerik.Reporting, Version=18.2.24.806, Culture=neutral, PublicKeyToken=a9d7983dfcc261be]
+@="Telerik Reporting 2024 Q3"
+"CodeBase"="C:\Program Files (x86)\Progress\Telerik Reporting 2024 Q3\bin\Telerik.Reporting.dll"
+
+[$RootKey$\ToolboxControlsInstaller\Telerik.Reporting.Design.Components, Version=18.2.24.806, Culture=neutral, PublicKeyToken=a9d7983dfcc261be]
+@="Telerik Reporting 2024 Q3"
+
+[$RootKey$\ToolboxControlsInstaller\Telerik.ReportViewer.WinForms, Version=18.2.24.806, Culture=neutral, PublicKeyToken=a9d7983dfcc261be]
+@="Telerik Reporting 2024 Q3"
+"CodeBase"="C:\Program Files (x86)\Progress\Telerik Reporting 2024 Q3\bin\Telerik.ReportViewer.WinForms.dll"
+
+[$RootKey$\ToolboxControlsInstaller\Telerik.ReportViewer.WebForms, Version=18.2.24.806, Culture=neutral, PublicKeyToken=a9d7983dfcc261be]
+@="Telerik Reporting 2024 Q3"
+"CodeBase"="C:\Program Files (x86)\Progress\Telerik Reporting 2024 Q3\bin\Telerik.ReportViewer.WebForms.dll"
+
+[$RootKey$\ToolboxControlsInstaller\Telerik.ReportViewer.Html5.WebForms, Version=18.2.24.806, Culture=neutral, PublicKeyToken=a9d7983dfcc261be]
+@="Telerik Reporting 2024 Q3"
+"CodeBase"="C:\Program Files (x86)\Progress\Telerik Reporting 2024 Q3\bin\Telerik.ReportViewer.Html5.WebForms.dll"
+
+[$RootKey$\ToolboxControlsInstaller\Telerik.ReportViewer.Wpf, Version=18.2.24.806, Culture=neutral, PublicKeyToken=a9d7983dfcc261be]
+@="Telerik Reporting 2024 Q3"
+"CodeBase"="C:\Program Files (x86)\Progress\Telerik Reporting 2024 Q3\bin\Telerik.ReportViewer.Wpf.dll"
+"WPFControls"="1"

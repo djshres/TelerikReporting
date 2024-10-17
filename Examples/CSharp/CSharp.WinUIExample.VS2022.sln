@@ -1,0 +1,57 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31729.503
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{C7167F0D-BC9F-4E6E-AFE1-012C56B48DB5}") = "CSharp.Net6.WinUIIntegrationDemo (Package)", ".NET 6\WinUIIntegrationDemo (Package)\CSharp.Net6.WinUIIntegrationDemo (Package).wapproj", "{BD58B226-8184-4164-A81A-67FA4E4084B8}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CSharp.Net6.WinUIIntegrationDemo", ".NET 6\WinUIIntegrationDemo\CSharp.Net6.WinUIIntegrationDemo.csproj", "{B3BFA27C-858C-418B-9E00-AA5D29397797}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B3BFA27C-858C-418B-9E00-AA5D29397797}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{B3BFA27C-858C-418B-9E00-AA5D29397797}.Debug|Any CPU.Build.0 = Debug|x64
+		{B3BFA27C-858C-418B-9E00-AA5D29397797}.Debug|x64.ActiveCfg = Debug|x64
+		{B3BFA27C-858C-418B-9E00-AA5D29397797}.Debug|x64.Build.0 = Debug|x64
+		{B3BFA27C-858C-418B-9E00-AA5D29397797}.Debug|x86.ActiveCfg = Debug|x86
+		{B3BFA27C-858C-418B-9E00-AA5D29397797}.Debug|x86.Build.0 = Debug|x86
+		{B3BFA27C-858C-418B-9E00-AA5D29397797}.Release|Any CPU.ActiveCfg = Release|x64
+		{B3BFA27C-858C-418B-9E00-AA5D29397797}.Release|Any CPU.Build.0 = Release|x64
+		{B3BFA27C-858C-418B-9E00-AA5D29397797}.Release|x64.ActiveCfg = Release|x64
+		{B3BFA27C-858C-418B-9E00-AA5D29397797}.Release|x64.Build.0 = Release|x64
+		{B3BFA27C-858C-418B-9E00-AA5D29397797}.Release|x86.ActiveCfg = Release|x86
+		{B3BFA27C-858C-418B-9E00-AA5D29397797}.Release|x86.Build.0 = Release|x86
+		{BD58B226-8184-4164-A81A-67FA4E4084B8}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{BD58B226-8184-4164-A81A-67FA4E4084B8}.Debug|Any CPU.Build.0 = Debug|x64
+		{BD58B226-8184-4164-A81A-67FA4E4084B8}.Debug|Any CPU.Deploy.0 = Debug|x64
+		{BD58B226-8184-4164-A81A-67FA4E4084B8}.Debug|x64.ActiveCfg = Debug|x64
+		{BD58B226-8184-4164-A81A-67FA4E4084B8}.Debug|x64.Build.0 = Debug|x64
+		{BD58B226-8184-4164-A81A-67FA4E4084B8}.Debug|x64.Deploy.0 = Debug|x64
+		{BD58B226-8184-4164-A81A-67FA4E4084B8}.Debug|x86.ActiveCfg = Debug|x86
+		{BD58B226-8184-4164-A81A-67FA4E4084B8}.Debug|x86.Build.0 = Debug|x86
+		{BD58B226-8184-4164-A81A-67FA4E4084B8}.Debug|x86.Deploy.0 = Debug|x86
+		{BD58B226-8184-4164-A81A-67FA4E4084B8}.Release|Any CPU.ActiveCfg = Release|x64
+		{BD58B226-8184-4164-A81A-67FA4E4084B8}.Release|Any CPU.Build.0 = Release|x64
+		{BD58B226-8184-4164-A81A-67FA4E4084B8}.Release|Any CPU.Deploy.0 = Release|x64
+		{BD58B226-8184-4164-A81A-67FA4E4084B8}.Release|x64.ActiveCfg = Release|x64
+		{BD58B226-8184-4164-A81A-67FA4E4084B8}.Release|x64.Build.0 = Release|x64
+		{BD58B226-8184-4164-A81A-67FA4E4084B8}.Release|x64.Deploy.0 = Release|x64
+		{BD58B226-8184-4164-A81A-67FA4E4084B8}.Release|x86.ActiveCfg = Release|x86
+		{BD58B226-8184-4164-A81A-67FA4E4084B8}.Release|x86.Build.0 = Release|x86
+		{BD58B226-8184-4164-A81A-67FA4E4084B8}.Release|x86.Deploy.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3285B08C-CFD4-41A0-90A0-021B32BB2E1C}
+	EndGlobalSection
+EndGlobal

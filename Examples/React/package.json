@@ -1,0 +1,42 @@
+
+{
+  "name": "TelerikReactReportViewerDemo",
+  "version": "0.0.0",
+  "license": "MIT",
+  "dependencies": {
+    "jquery": "^3.7.0",
+    "@progress/telerik-react-report-viewer":"23.24.806",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-scripts": "^5.0.1"
+  },
+  "config": {
+    "path": "../CSharp/\".NET 6\"/ReportingRestServiceCorsDemo/CSharp.Net6.ReportingRestServiceCorsDemo.csproj"
+  },
+  "scripts": {
+    "prepare-service": "dotnet build %npm_package_config_path%",
+    "run-service": "dotnet run --project %npm_package_config_path%",
+    "start-react": "react-scripts start",
+    "start": "start npm run run-service && start npm run start-react",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

@@ -1,0 +1,1 @@
+The assemblies in this folder can also be found in \Tools subfolder in Telerik Report Server installation folder.

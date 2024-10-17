@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+  <PropertyGroup Label="Globals">
+    <Configurations>Debug;Release;Linux</Configurations>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFrameworks>net8.0-windows</TargetFrameworks>
+    <EnableWindowsTargeting>true</EnableWindowsTargeting>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ApplicationManifest>dpiAware.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Telerik.Reporting.OpenXmlRendering" Version="18.2.24.806" />
+    <PackageReference Include="Telerik.ReportViewer.WinForms" Version="18.2.24.806" /> 
+  </ItemGroup>
+</Project>

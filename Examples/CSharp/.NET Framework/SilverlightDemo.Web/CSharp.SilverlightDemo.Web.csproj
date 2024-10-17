@@ -1,0 +1,187 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.30319</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{020C0919-55BE-4730-8E34-D5D7CCA7644B}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CSharp.SilverlightDemo.Web</RootNamespace>
+    <AssemblyName>CSharp.SilverlightDemo.Web</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <SilverlightApplicationList>{B1A26A1E-D3C0-45BF-A524-068A2863CEC4}|..\SilverlightDemo\CSharp.SilverlightDemo.csproj|ClientBin|False</SilverlightApplicationList>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <UseIISExpress>false</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <Use64BitIISExpress />
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DocumentFormat.OpenXml, Version=2.0.5022.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Source\ext\DocumentFormat.OpenXml\2.0.5022.0\DocumentFormat.OpenXml.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Runtime.Serialization">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.ServiceModel">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Mobile" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ClientBin\CSharp.SilverlightDemo.xap" />
+    <Content Include="Default.aspx" />
+    <Content Include="favicon.ico" />
+    <Content Include="ReportService.svc" />
+    <Content Include="Silverlight.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\Source\Code\Telerik.Reporting\CsvRendering\Telerik.Reporting.CsvRendering.csproj">
+      <Project>{fdf5d5d3-df37-4a50-9880-5aec8c9a66e7}</Project>
+      <Name>Telerik.Reporting.CsvRendering</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\Source\Code\Telerik.Reporting\ExcelRendering.Excel97\Telerik.Reporting.ExcelRendering.Excel97.csproj">
+      <Project>{4494cd99-aa08-4232-96d8-e695590b7da4}</Project>
+      <Name>Telerik.Reporting.ExcelRendering.Excel97</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\Source\Code\Telerik.Reporting\ImageRendering\Telerik.Reporting.ImageRendering.csproj">
+      <Project>{d66e2b4c-b3ea-4cf3-8cd3-551cd5609f08}</Project>
+      <Name>Telerik.Reporting.ImageRendering</Name>
+    </ProjectReference>
+		<ProjectReference Include="..\..\..\..\Source\Code\Telerik.Reporting.OpenXmlRendering\Presentation\Telerik.Reporting.OpenXmlRendering.Presentation.csproj">
+      <Project>{d8377fe6-36fe-4d09-97f8-c107893ef10d}</Project>
+      <Name>Telerik.Reporting.OpenXmlRendering.Presentation</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\Source\Code\Telerik.Reporting.OpenXmlRendering\Spreadsheet\Telerik.Reporting.OpenXmlRendering.Spreadsheet.csproj">
+      <Project>{1147539a-6469-440f-8f3e-61360a6c64f1}</Project>
+      <Name>Telerik.Reporting.OpenXmlRendering.Spreadsheet</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\Source\Code\Telerik.Reporting.OpenXmlRendering\Wordprocessing\Telerik.Reporting.OpenXmlRendering.Wordprocessing.csproj">
+      <Project>{6339297c-13cb-4f21-81d6-57ab49abec5b}</Project>
+      <Name>Telerik.Reporting.OpenXmlRendering.Wordprocessing</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\Source\Code\Telerik.Reporting\RtfRendering\Telerik.Reporting.RtfRendering.csproj">
+      <Project>{f729bbb6-291c-4037-b506-910454061a27}</Project>
+      <Name>Telerik.Reporting.RtfRendering</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\Source\Code\Telerik.Reporting.Service\Telerik.Reporting.Service.csproj">
+      <Project>{D915E12C-E5D0-450A-82C1-DCA417D16DCC}</Project>
+      <Name>Telerik.Reporting.Service</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\Source\Code\Telerik.Reporting\XamlRendering\Telerik.Reporting.XamlRendering.csproj">
+      <Project>{ce35d36c-42db-4c15-b1d1-b07ffba9e99c}</Project>
+      <Name>Telerik.Reporting.XamlRendering</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\Source\Code\Telerik.Reporting.XpsRendering\Telerik.Reporting.XpsRendering.csproj">
+      <Project>{bb1e4cbc-0ff5-412b-96b7-4b635c9a3126}</Project>
+      <Name>Telerik.Reporting.XpsRendering</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ReportLibrary\CSharp.ReportLibrary.csproj">
+      <Project>{45DCEC9A-B73B-45F3-B199-DA974C511B6D}</Project>
+      <Name>CSharp.ReportLibrary</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\world.dbf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\world.shp">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>58598</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost/CSharp.SilverlightDemo.Web</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup>
+</Project>

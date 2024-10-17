@@ -1,0 +1,86 @@
+@page "/localization"
+@inject IJSRuntime JsInterop
+@using System.Globalization
+
+@implements IDisposable
+
+@*This page demonstrates how to configure the localization of the Blazor Native Report Viewer*@
+<PageTitle>Report Viewer</PageTitle>
+
+Selected theme: 
+<select value="@selectedTheme" @onchange="ChangeTheme" id="theme-switcher">
+    @foreach(var theme in blazorThemeNames)
+    {
+        <option value="@theme">@Capitalize(theme)</option>
+    }
+</select>
+
+<ReportViewer
+    ServiceUrl="/api/reports"
+    @bind-ReportSource="@ReportSource"
+    @bind-ScaleMode="@ScaleMode"
+    @bind-ViewMode="@ViewMode"
+    @bind-ParametersAreaVisible="@ParametersAreaVisible"
+    @bind-DocumentMapVisible="@DocumentMapVisible"
+    @bind-Scale="@Scale"
+    EnableSendEmail="true"
+    Height="800px"
+    Width="100%">
+</ReportViewer>
+
+@code {
+    public ScaleMode ScaleMode { get; set; } = ScaleMode.Specific;
+    public ViewMode ViewMode { get; set; } = ViewMode.Interactive;
+    public bool ParametersAreaVisible { get; set; }
+    public bool DocumentMapVisible { get; set; }
+    public double Scale { get; set; } = 1.0;
+    string[] blazorThemeNames = new [] { "default", "bootstrap", "fluent", "material" };
+    string selectedTheme { get; set; } = "default";
+
+    public ReportSourceOptions ReportSource { get; set; } = new ReportSourceOptions("Report Catalog.trdp", new Dictionary<string, object>
+    {
+        // Add parameters if applicable
+    });
+
+    protected override void OnInitialized()
+    {
+        var culture = new CultureInfo("bg-BG");
+
+        CultureInfo.DefaultThreadCurrentCulture = culture;
+        CultureInfo.DefaultThreadCurrentUICulture = culture;
+
+        base.OnInitialized();
+    }
+
+    public void Dispose()
+    {
+        var culture = new CultureInfo("en-US");
+
+        CultureInfo.DefaultThreadCurrentCulture = culture;
+        CultureInfo.DefaultThreadCurrentUICulture = culture;
+    }
+
+    async Task ChangeTheme(ChangeEventArgs e)
+    {
+        // Set the URL to the Kendo theme - it can be a relative URL pointing to a local resource or to a custom theme
+        string newThemeUrl = $"_content/Telerik.UI.for.Blazor/css/kendo-theme-{e.Value}/all.css";
+        // call the JS interop that will switch out the <link> element
+        await JsInterop.InvokeVoidAsync("changeKendoTheme", new[] { newThemeUrl });
+    }
+
+    string Capitalize(string themeName) =>
+        string.IsNullOrWhiteSpace(themeName)
+            ? throw new ArgumentNullException(nameof(themeName))
+            : string.Concat(themeName[0].ToString().ToUpper(), themeName.AsSpan(1));
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            var currentTheme = await JsInterop.InvokeAsync<string>("getCurrentBlazorTheme");
+            selectedTheme = blazorThemeNames.FirstOrDefault(name => currentTheme.Contains(name)) ?? "default";
+        }
+
+        await base.OnAfterRenderAsync(firstRender);
+    }
+}
